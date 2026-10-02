@@ -1,0 +1,2 @@
+promplt text: What is your name?
+⏹️ Test [Js Prompt] finished with status: PASSED

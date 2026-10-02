@@ -1,0 +1,4 @@
+Register success Message: 
+     Registration successful!
+  
+⏹️ Test [Registration page] finished with status: PASSED

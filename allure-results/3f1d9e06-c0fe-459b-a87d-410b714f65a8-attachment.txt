@@ -1,0 +1,2 @@
+this product mechanical keyboard Price is: $89.99
+⏹️ Test [Pagination table] finished with status: PASSED

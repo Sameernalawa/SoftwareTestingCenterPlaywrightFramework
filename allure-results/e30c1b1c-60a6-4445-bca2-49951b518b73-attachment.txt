@@ -1,0 +1,1 @@
+⏹️ Test [Verify text field interaction inside new tab via POM] finished with status: PASSED

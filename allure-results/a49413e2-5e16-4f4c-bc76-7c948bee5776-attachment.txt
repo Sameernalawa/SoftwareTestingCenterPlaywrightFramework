@@ -1,0 +1,3 @@
+Alert message: I am a JS Alert! Click OK to dismiss.
+Triggered 2 sec : This alert was delayed by 2 seconds!
+⏹️ Test [Js Alert] finished with status: PASSED
