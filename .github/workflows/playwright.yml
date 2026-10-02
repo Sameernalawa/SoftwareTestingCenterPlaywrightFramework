@@ -20,7 +20,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+       run: npx playwright test --reporter=html,json
+      env:
+        PLAYWRIGHT_JSON_OUTPUT_NAME: results.json
+
     - name: Generate Summary Table 📊
       if: always() # Ensures the table is generated even if tests fail
       run: |
