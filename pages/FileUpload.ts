@@ -23,13 +23,14 @@ export class FileUpload{
     }
     async singleFileUpload() {
         await this.navUpload.click();
-        await this.singleuploadFile.setInputFiles("D:/My all files/dummy-50KB.pdf");
+        // Pass the relative path directly as a string from the project root
+        await this.singleuploadFile.setInputFiles('test-input/dummy-50KB.pdf');
         await this.singleuploadButton.click();
     }
     async multipleFileUpload(){
-        await this.multipleuploadFile.setInputFiles([
-            "D:/My all files/new pdf2.pdf",
-            "D:/My all files/new pdf2.pdf"
+         await this.multipleuploadFile.setInputFiles([
+            'test-input/new pdf1.pdf',
+            'test-input/new pdf2.pdf'
         ]);
         await this.multipleuploadButton.click();
     }
