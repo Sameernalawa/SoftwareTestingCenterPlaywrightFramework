@@ -21,6 +21,33 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
+    - name: Generate Summary Table 📊
+      if: always() # Ensures the table is generated even if tests fail
+      run: |
+        node -e "
+        const fs = require('fs');
+        try {
+          const raw = fs.readFileSync('results.json', 'utf8');
+          const data = JSON.parse(raw);
+          const stats = data.stats;
+          
+          const markdownTable = [
+            '### 🎭 Playwright Automation Test Summary',
+            '',
+            '| Result Status | Total Count |',
+            '| :--- | :---: |',
+            '| ✅ **Passed** | ' + stats.expected + ' |',
+            '| ❌ **Failed** | ' + stats.unexpected + ' |',
+            '| ⚠️ **Flaky** | ' + stats.flaky + ' |',
+            '| 💤 **Skipped** | ' + stats.skipped + ' |',
+            ''
+          ].join('\n');
+          
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, markdownTable);
+        } catch (error) {
+          console.error('Failed to generate summary table:', error);
+        }
+        "
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
