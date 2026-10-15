@@ -3,7 +3,7 @@ import { test , expect } from '../fixtures/pageFixture';
 const uniqueMessage = `Apple banana cherry date elderberry fig grape honeydew kiwi lemon 
 mango nectarine orange papaya quince raspberry strawberry tangerine uva watermelon`;
 
-// 1. test.describe groups your 21 tests into one logical container suite
+// 1. test.describe groups your 21 tests into one logical container suite.
 test.describe("Practice Sandbox Application Automation Suite", () => {
 
     // This runs fresh before every single test case 
