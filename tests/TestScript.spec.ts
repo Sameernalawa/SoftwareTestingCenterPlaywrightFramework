@@ -19,7 +19,7 @@ test.describe("Practice Sandbox Application Automation Suite", () => {
         console.log(`⏹️ Test [${testInfo.title}] finished with status: ${testInfo.status?.toUpperCase()}`);
     });
 //Login test
-test.only("Login Test", async ({loginPage, testData: {loginData}}) => {
+test("Login Test", async ({loginPage, testData: {loginData}}) => {
     await expect(loginPage.page).toHaveTitle(new RegExp(loginData.expectedTitle));
     await loginPage.LoginMenu();
     await loginPage.LoginCred(loginData.username,loginData.password);
