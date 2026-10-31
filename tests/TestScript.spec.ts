@@ -13,13 +13,13 @@ test.describe("Practice Sandbox Application Automation Suite", () => {
         await page.goto('/'); 
     });
 
-    // This runs right after each individual test finishes execution
+    // This runs right after each individual test finishes execution.
     test.afterEach(async ({ page }, testInfo) => {
         // Logs a clean summary trace of your test results to the execution terminal
         console.log(`⏹️ Test [${testInfo.title}] finished with status: ${testInfo.status?.toUpperCase()}`);
     });
 //Login test
-test("Login Test", async ({loginPage, testData: {loginData}}) => {
+test.only("Login Test", async ({loginPage, testData: {loginData}}) => {
     await expect(loginPage.page).toHaveTitle(new RegExp(loginData.expectedTitle));
     await loginPage.LoginMenu();
     await loginPage.LoginCred(loginData.username,loginData.password);
@@ -149,14 +149,14 @@ test("Iframe", async({iframePage,testData:{iframeData}}) => {
     //multiple windows
 test("Multiple Windows", async({multipleWindowsPage}) => {
     await multipleWindowsPage.navigateToMultipleWindows();
-    const newTab = await multipleWindowsPage.openAndCaptureNewWindow();
-    await multipleWindowsPage.interactWithNewWindow(newTab, "new window selected");
+    const newWindow = await multipleWindowsPage.openAndCaptureNewWindow();
+    await multipleWindowsPage.interactWithNewWindow(newWindow, "new window selected");
 });
     //new tab
 test("Verify text field interaction inside new tab via POM", async ({newTabPage}) => {
     await newTabPage.navigateToMultipleWindowsPage();
     const secondaryTab = await newTabPage.openAndCaptureNewTab();
-    await newTabPage.interactInsideNewTab(secondaryTab, "new tab selected");
+    await newTabPage. interactInsideNewTab(secondaryTab, "new tab selected");
 });
     //calendar
 test("Calendar", async({calendarPage,testData:{calendarData}}) => {
